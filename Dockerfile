@@ -1,7 +1,7 @@
 FROM nginx:latest
 
  RUN apt-get update -qq && apt-get -y install apache2-utils
- ENV NODE_ROOT /var/www/api-gateway
+ ENV NODE_ROOT /var/www/frontend
  WORKDIR $NODE_ROOT
  RUN mkdir log
  COPY nginx.conf /tmp/app.nginx
