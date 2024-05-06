@@ -10,7 +10,7 @@ services:
       context: ../appolo_ma
       dockerfile: Dockerfile
     ports:
-      - 61527:8083
+      - 61527:8080
     restart: always
     networks:
       - front_network
