@@ -1,4 +1,8 @@
 version: '3'
+networks:
+  front_network:
+    driver: bridge
+
 
 services:
   appolo_web:
@@ -6,20 +10,21 @@ services:
       context: ../appolo_ma
       dockerfile: Dockerfile
     ports:
-      - 61527:8080
+      - 61527:8083
     restart: always
-
-  nginx:
+    networks:
+      - front_network
+  proxy_front:
     build: 
       context: ./
       dockerfile: Dockerfile
-    image: nginx:latest
     ports:
       - 81:81
       - 443:443
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf  # Mount the Nginx configuration file
-      - ./certificados:/etc/nginx/ssl  # Mount SSL certificate and key files
     depends_on:
       - appolo_web  
+    networks:
+      - front_network
     restart: always
