@@ -11,4 +11,4 @@
 2. Run the command `flutter build web`.
 3. Navigate to the present project folder (appolo_wa_rp).
 4. Run the docker compose command `docker-compose up -d`.
-5. Verify by accessing [https://localhost/](https://localhost/).
+5. Verify by accessing [https://localhost/](https://localhost/)
